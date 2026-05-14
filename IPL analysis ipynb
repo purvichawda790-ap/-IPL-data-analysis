@@ -1,0 +1,23 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Load dataset
+matches = pd.read_csv("../dataset/matches.csv")
+
+# Show first 5 rows
+print(matches.head())
+
+# Check missing values
+print(matches.isnull().sum())
+
+# Top winning teams
+top_teams = matches['winner'].value_counts().head(5)
+
+# Plot chart
+top_teams.plot(kind='bar')
+
+plt.title("Top Winning Teams")
+plt.xlabel("Teams")
+plt.ylabel("Wins")
+
+plt.show()
